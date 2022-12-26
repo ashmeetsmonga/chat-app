@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Button } from "@material-ui/core";
+import Dashboard from "./components/Dashboard";
 import Login from "./components/Login";
 
 function App() {
-	const [id, setId] = useState("");
+	const [id, setId] = useState("id");
 
-	console.log(id);
-
-	return <Login onIdSubmit={setId} />;
+	return id ? <Dashboard id={id} /> : <Login onIdSubmit={setId} />;
 }
 
 export default App;
