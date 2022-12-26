@@ -2,7 +2,7 @@ import React from "react";
 import "./Sidebar.css";
 
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import { Box, Tab } from "@mui/material";
+import { AppBar, Box, Tab } from "@mui/material";
 import { useState } from "react";
 import Conversations from "./Conversations";
 import Contacts from "./Contacts";
@@ -13,14 +13,17 @@ const Sidebar = () => {
 		<div className='sidebar-container'>
 			<TabContext value={value}>
 				<div>
-					<TabList
-						onChange={(e, newValue) => setValue(newValue)}
-						aria-label='Sidebar'
-						variant='fullWidth'
-					>
-						<Tab label='Conversations' value='conversations' />
-						<Tab label='Contacts' value='contacts' />
-					</TabList>
+					<AppBar position='static'>
+						<TabList
+							onChange={(e, newValue) => setValue(newValue)}
+							aria-label='Sidebar'
+							variant='fullWidth'
+							textColor='inherit'
+						>
+							<Tab label='Conversations' value='conversations' />
+							<Tab label='Contacts' value='contacts' />
+						</TabList>
+					</AppBar>
 				</div>
 				<TabPanel value='conversations'>
 					<Conversations />
