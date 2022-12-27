@@ -6,7 +6,7 @@ const Dashboard = ({ id }) => {
 	return (
 		<div className='dashboard-container'>
 			<div className='dashboard-sidebar'>
-				<Sidebar />
+				<Sidebar id={id} />
 			</div>
 		</div>
 	);
