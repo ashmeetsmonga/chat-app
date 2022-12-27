@@ -2,13 +2,18 @@ import React from "react";
 import "./Sidebar.css";
 
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import { AppBar, Box, Button, Tab, Typography } from "@mui/material";
+import { AppBar, Button, Tab, Typography } from "@mui/material";
 import { useState } from "react";
 import Conversations from "./Conversations";
 import Contacts from "./Contacts";
+import MyModal from "./MyModal";
+import NewConversationModal from "./NewConversationModal";
+import NewContactModal from "./NewContactModal";
 
 const Sidebar = ({ id }) => {
 	const [value, setValue] = useState("conversations");
+	const [showModal, setShowModal] = useState(true);
+
 	const conversationOpen = value === "conversations";
 	return (
 		<div className='sidebar-container'>
@@ -39,9 +44,15 @@ const Sidebar = ({ id }) => {
 				<div>
 					<Typography variant='subtitle1'>Your Id : {id}</Typography>
 				</div>
-				<Button color='primary' variant='contained' size='large'>
+				<Button color='primary' variant='contained' size='large' onClick={() => setShowModal(true)}>
 					New {conversationOpen ? "Conversation" : "Contact"}
 				</Button>
+				{showModal && (
+					<MyModal
+						showModal={setShowModal}
+						component={conversationOpen ? <NewConversationModal /> : <NewContactModal />}
+					/>
+				)}
 			</div>
 		</div>
 	);
