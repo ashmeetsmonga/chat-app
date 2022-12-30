@@ -13,4 +13,7 @@
 .myModalContent {
     width: 60%;
     background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

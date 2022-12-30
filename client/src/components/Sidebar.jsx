@@ -14,7 +14,7 @@ const Sidebar = ({ id }) => {
 	const [value, setValue] = useState("conversations");
 	const [showModal, setShowModal] = useState(true);
 
-	const conversationOpen = value === "conversations";
+	const conversationOpen = value === "contacts";
 	return (
 		<div className='sidebar-container'>
 			<div>
