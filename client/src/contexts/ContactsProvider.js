@@ -7,7 +7,11 @@ export const useContact = () => {
 };
 
 export const ContactsProvider = ({ children }) => {
-	const [contacts, setContacts] = useState([]);
+	const [contacts, setContacts] = useState([
+		{ id: 1234, name: "Ashmeet" },
+		{ id: 1234, name: "Ashmeet" },
+		{ id: 1234, name: "Ashmeet" },
+	]);
 
 	const createNewContact = (id, name) => {
 		console.log(contacts);

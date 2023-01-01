@@ -12,9 +12,9 @@ import NewContactModal from "./NewContactModal";
 
 const Sidebar = ({ id }) => {
 	const [value, setValue] = useState("conversations");
-	const [showModal, setShowModal] = useState(true);
+	const [showModal, setShowModal] = useState(false);
 
-	const conversationOpen = value === "contacts";
+	const conversationOpen = value === "conversations";
 	return (
 		<div className='sidebar-container'>
 			<div>
@@ -50,7 +50,13 @@ const Sidebar = ({ id }) => {
 				{showModal && (
 					<MyModal
 						showModal={setShowModal}
-						component={conversationOpen ? <NewConversationModal /> : <NewContactModal />}
+						component={
+							conversationOpen ? (
+								<NewConversationModal showModal={setShowModal} />
+							) : (
+								<NewContactModal showModal={setShowModal} />
+							)
+						}
 					/>
 				)}
 			</div>

@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Button, TextField } from "@mui/material";
 import { useContact } from "../contexts/ContactsProvider";
 
-const NewContactModal = () => {
+const NewContactModal = ({ showModal }) => {
 	const { createNewContact } = useContact();
 
 	const idRef = useRef();
@@ -10,7 +10,7 @@ const NewContactModal = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		createNewContact(idRef.current.value, nameRef.current.value);
-		alert("Contact Created");
+		showModal(false);
 	};
 	return (
 		<div className='contactModal-container'>
